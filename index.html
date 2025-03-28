@@ -31,10 +31,6 @@
             box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
             text-align: center;
             color: white;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
-            animation: floating 3s ease-in-out infinite;
         }
 
         input, button {
@@ -95,12 +91,6 @@
                 transform: translate(-50%, -50%);
             }
         }
-
-        @keyframes floating {
-            0% { transform: translate(-50%, -50%) translateY(0px); }
-            50% { transform: translate(-50%, -50%) translateY(-10px); }
-            100% { transform: translate(-50%, -50%) translateY(0px); }
-        }
     </style>
 </head>
 <body>
@@ -123,13 +113,6 @@
     </div>
 
     <script>
-        setTimeout(() => {
-            const formContainer = document.getElementById("formContainer");
-            formContainer.style.opacity = "1";
-            formContainer.style.visibility = "visible";
-            formContainer.style.transform = "translate(-50%, -50%)";
-        }, 5000);
-
         document.getElementById("form").addEventListener("submit", function(event) {
             event.preventDefault();
 
