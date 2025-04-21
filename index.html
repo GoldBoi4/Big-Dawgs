@@ -1,92 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sold Out</title>
+  <meta charset="UTF-8" />
+  <title>Join Our Workshop</title>
   <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
     body {
       margin: 0;
       padding: 0;
-      height: 100vh;
-      background: linear-gradient(135deg, #1a1a1a, #000000);
-      color: white;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('https://raw.githubusercontent.com/GoldBoi4/Big-Dawgs/main/WhatsApp%20Image%202025-04-21%20at%2013.14.24_70461617.jpg') no-repeat center top fixed;
+      background-size: cover;
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 40px 35px;
+      border-radius: 20px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+      max-width: 450px;
+      width: 100%;
       text-align: center;
-      overflow: hidden;
-    }
-
-    h1 {
-      font-size: 3.5rem;
-      background: linear-gradient(to right, #f87171, #facc15);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 20px;
-      opacity: 0;
-      transform: translateY(-50px);
-      animation: fadeInUp 1s forwards;
-    }
-
-    p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      color: #d1d5db;
-      margin-bottom: 40px;
-      opacity: 0;
-      animation: fadeIn 1s 0.5s forwards;
-    }
-
-    .btn {
-      padding: 15px 30px;
-      font-size: 1.1rem;
-      border: none;
-      border-radius: 30px;
-      background: linear-gradient(to right, #3b82f6, #9333ea);
-      color: white;
-      cursor: pointer;
-      text-decoration: none;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-      transition: background 0.3s ease;
-      opacity: 0;
-      transform: translateY(50px);
-      animation: fadeInUp 1s 1s forwards;
-    }
-
-    .btn:hover {
-      background: linear-gradient(to right, #9333ea, #3b82f6);
-    }
-
-    footer {
-      position: absolute;
-      bottom: 30px;
-      font-size: 0.9rem;
-      color: #9ca3af;
-      opacity: 0;
-      animation: fadeIn 1s 1.5s forwards;
+      animation: fadeIn 0.8s ease;
     }
 
     @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    h2 {
+      margin-bottom: 30px;
+      color: #222;
+      font-size: 30px;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px 16px;
+      margin: 12px 0;
+      border: 2px solid #ccc;
+      border-radius: 12px;
+      font-size: 16px;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus {
+      border-color: #4CAF50;
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 20px;
+      border: none;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: bold;
+      background: #4CAF50;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background: #388e3c;
+      transform: scale(1.03);
+    }
+
+    .thank-you {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #popupMessage {
+      font-size: 20px;
+      font-weight: bold;
+      color: #2e7d32;
+      margin-top: 20px;
+    }
+
+    #paymentPortal {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 1s ease;
+      margin-top: 20px;
+    }
+
+    #paymentPortal img {
+      width: 220px;
+      margin: 20px 0 10px;
+      border-radius: 14px;
+    }
+
+    .price {
+      font-size: 18px;
+      color: #333;
+      font-weight: bold;
+    }
+
+    ::placeholder {
+      color: #999;
+    }
+
+    .footer-note {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #666;
     }
   </style>
 </head>
 <body>
-  <h1>We Are Officially Sold Out!</h1>
-  <p>Thank you for the overwhelming support and love. It means the world to us. If you missed your chance, you can still be a part of the experience with a Viewer Pass.</p>
-  <a class="btn" href="https://viewerpass.netlify.app/" target="_blank">Purchase Viewer Pass</a>
-  <footer>With gratitude — Karma Kunnal Bhardwaj ❤️</footer>
+  <div class="container" id="form-container">
+    <h2>Join Our Workshop</h2>
+    <form id="registerForm">
+      <input type="text" name="Name" placeholder="Name" required />
+      <input type="number" name="Age" placeholder="Age" required />
+      <input type="text" name="City" placeholder="City" required />
+      <input type="text" name="Phone Number" placeholder="Phone Number" required />
+      <input type="email" name="Email Address" placeholder="Email Address" required />
+      <button type="submit">Submit</button>
+    </form>
+
+    <div class="thank-you" id="thankYouSection">
+      <div id="popupMessage">✅ Thank you for joining Us!</div>
+      <div id="paymentPortal">
+        <h3>Pay ₹799 here</h3>
+        <img src="https://raw.githubusercontent.com/GoldBoi4/Big-Dawgs/main/WhatsApp%20Image%202025-04-21%20at%2013.18.42_07422f88.jpg" alt="QR Code" />
+        <div class="price">₹799</div>
+      </div>
+    </div>
+
+    <div class="footer-note">
+      Secure your spot now – limited entries only!
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("registerForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const form = e.target;
+      const data = new FormData(form);
+
+      fetch('https://script.google.com/macros/s/AKfycbyv6q5kfbUaPTmhSNE6DKnY4qxeZ5tsuAjonAW3dTg7uAGq7ow0byaVGCP3qpPEwxs5Mw/exec', {
+        method: 'POST',
+        body: data
+      })
+      .then(res => res.text())
+      .then(response => {
+        if (response.trim() === "Success") {
+          form.style.display = "none";
+          const thankYouSection = document.getElementById("thankYouSection");
+          const popup = document.getElementById("popupMessage");
+          const payment = document.getElementById("paymentPortal");
+
+          thankYouSection.style.display = "flex";
+
+          setTimeout(() => {
+            popup.style.display = "none";
+            payment.style.display = "flex";
+            setTimeout(() => {
+              payment.style.opacity = "1";
+            }, 100);
+          }, 2500);
+        } else {
+          alert("Submission failed: " + response);
+        }
+      })
+      .catch(error => {
+        alert("Error: " + error);
+      });
+    });
+  </script>
 </body>
 </html>
